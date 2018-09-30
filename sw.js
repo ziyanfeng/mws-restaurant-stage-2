@@ -1,17 +1,18 @@
-let staticCacheName = "restaurant-static-v1";
+let staticCacheName = "restaurant-review-v2";
 
 self.addEventListener("install", function(event) {
   event.waitUntil(
     caches.open(staticCacheName).then(function(cache) {
       return cache.addAll([
         "/",
-        "js/sw_registration.js",
         "/index.html",
         "/restaurant.html",
         "/css/styles.css",
         "/js/dbhelper.js",
         "/js/main.js",
         "/js/restaurant_info.js",
+        "/js/idb.js",
+        "js/sw_registration.js",
         "/img/*",
         "/data/restaurants.json"
       ])
@@ -42,7 +43,7 @@ self.addEventListener ("activate", function(event) {
 self.addEventListener("fetch", function(event) {
   event.respondWith(
     caches.match(event.request).then(function(response) {
-      if (response !== undefined) {
+      if (response) {
         return response;
       }
       else {
