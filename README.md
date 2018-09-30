@@ -34,3 +34,6 @@ You can audit your site's performance with Lighthouse by using the Audit tab of 
 3. Cache the JSON responses for offline use by using the IndexedDB API.
 4. Follow the recommendations provided by Lighthouse to achieve the required performance targets.
 5. Submit your project code for review.
+
+![Lighthouse Audit Scores](./audit_scores.png)
+
